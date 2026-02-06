@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ai.wot Trust Network</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0a;
+      color: #e5e5e5;
+      overflow: hidden;
+    }
+    
+    #header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 16px 24px;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.95), rgba(10,10,10,0));
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #fff;
+    }
+    
+    h1 span {
+      color: #22c55e;
+    }
+    
+    .subtitle {
+      font-size: 14px;
+      color: #888;
+      margin-top: 4px;
+    }
+    
+    #stats {
+      text-align: right;
+      font-size: 13px;
+      color: #888;
+    }
+    
+    #stats .number {
+      color: #22c55e;
+      font-weight: 600;
+    }
+    
+    #graph {
+      width: 100vw;
+      height: 100vh;
+    }
+    
+    #legend {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      background: rgba(20,20,20,0.9);
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 13px;
+    }
+    
+    #legend h3 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #888;
+      margin-bottom: 12px;
+    }
+    
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    
+    .legend-color {
+      width: 12px;
+      height: 3px;
+      border-radius: 2px;
+    }
+    
+    #tooltip {
+      position: fixed;
+      background: rgba(20,20,20,0.95);
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 13px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s;
+      max-width: 300px;
+      z-index: 200;
+    }
+    
+    #tooltip.visible {
+      opacity: 1;
+    }
+    
+    #tooltip .name {
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    
+    #tooltip .pubkey {
+      font-family: monospace;
+      font-size: 11px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+    
+    #tooltip .stat {
+      color: #888;
+    }
+    
+    #tooltip .stat span {
+      color: #22c55e;
+    }
+    
+    .node {
+      cursor: pointer;
+    }
+    
+    .node:hover circle {
+      stroke: #fff;
+      stroke-width: 2px;
+    }
+    
+    .link {
+      fill: none;
+      stroke-opacity: 0.4;
+    }
+    
+    .link:hover {
+      stroke-opacity: 1;
+    }
+    
+    #controls {
+      position: fixed;
+      top: 80px;
+      right: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    button {
+      background: rgba(30,30,30,0.9);
+      border: 1px solid #333;
+      color: #e5e5e5;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    
+    button:hover {
+      background: rgba(50,50,50,0.9);
+      border-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <div>
+      <h1>ai<span>.wot</span> Trust Network</h1>
+      <div class="subtitle">Decentralized trust graph for AI agents</div>
+    </div>
+    <div id="stats">
+      <div><span class="number" id="node-count">-</span> agents</div>
+      <div><span class="number" id="edge-count">-</span> attestations</div>
+      <div id="generated"></div>
+    </div>
+  </div>
+  
+  <svg id="graph"></svg>
+  
+  <div id="legend">
+    <h3>Attestation Types</h3>
+    <div class="legend-item">
+      <div class="legend-color" style="background: #22c55e"></div>
+      <span>service-quality</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background: #3b82f6"></div>
+      <span>identity-continuity</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background: #a855f7"></div>
+      <span>general-trust</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background: #f59e0b"></div>
+      <span>work-completed</span>
+    </div>
+  </div>
+  
+  <div id="controls">
+    <button onclick="resetZoom()">Reset View</button>
+    <button onclick="toggleLabels()">Toggle Labels</button>
+  </div>
+  
+  <div id="tooltip">
+    <div class="name"></div>
+    <div class="pubkey"></div>
+    <div class="stat">Received: <span class="received"></span></div>
+    <div class="stat">Given: <span class="given"></span></div>
+  </div>
+
+  <script>
+    let showLabels = true;
+    let simulation, svg, g, link, node, labels;
+    
+    async function init() {
+      // Load graph data
+      let data;
+      try {
+        const res = await fetch('graph-data.json');
+        data = await res.json();
+      } catch (e) {
+        console.error('Failed to load graph data:', e);
+        document.body.innerHTML = '<div style="padding: 40px; text-align: center;"><h1>No data</h1><p>Run crawler.cjs first to generate graph-data.json</p></div>';
+        return;
+      }
+      
+      // Update stats
+      document.getElementById('node-count').textContent = data.stats.nodes;
+      document.getElementById('edge-count').textContent = data.stats.edges;
+      document.getElementById('generated').textContent = `Updated: ${new Date(data.generated).toLocaleString()}`;
+      
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      
+      // Create SVG
+      svg = d3.select('#graph')
+        .attr('width', width)
+        .attr('height', height);
+      
+      // Add zoom behavior
+      const zoom = d3.zoom()
+        .scaleExtent([0.1, 4])
+        .on('zoom', (event) => {
+          g.attr('transform', event.transform);
+        });
+      
+      svg.call(zoom);
+      
+      // Container for zoom
+      g = svg.append('g');
+      
+      // Create simulation
+      simulation = d3.forceSimulation(data.nodes)
+        .force('link', d3.forceLink(data.edges).id(d => d.id).distance(100))
+        .force('charge', d3.forceManyBody().strength(-300))
+        .force('center', d3.forceCenter(width / 2, height / 2))
+        .force('collision', d3.forceCollide().radius(d => d.size + 5));
+      
+      // Draw links
+      link = g.append('g')
+        .selectAll('line')
+        .data(data.edges)
+        .enter()
+        .append('line')
+        .attr('class', 'link')
+        .attr('stroke', d => d.color)
+        .attr('stroke-width', d => d.weight);
+      
+      // Draw nodes
+      node = g.append('g')
+        .selectAll('g')
+        .data(data.nodes)
+        .enter()
+        .append('g')
+        .attr('class', 'node')
+        .call(d3.drag()
+          .on('start', dragstarted)
+          .on('drag', dragged)
+          .on('end', dragended));
+      
+      node.append('circle')
+        .attr('r', d => d.size)
+        .attr('fill', d => {
+          // Color based on whether they give or receive more
+          const ratio = d.received / (d.given || 1);
+          if (ratio > 2) return '#22c55e'; // Mostly receiver
+          if (ratio < 0.5) return '#3b82f6'; // Mostly giver
+          return '#a855f7'; // Balanced
+        })
+        .attr('stroke', '#333')
+        .attr('stroke-width', 1);
+      
+      // Node labels
+      labels = node.append('text')
+        .text(d => d.name)
+        .attr('dx', d => d.size + 4)
+        .attr('dy', 4)
+        .attr('fill', '#888')
+        .attr('font-size', '11px')
+        .style('pointer-events', 'none');
+      
+      // Tooltip
+      const tooltip = d3.select('#tooltip');
+      
+      node.on('mouseenter', (event, d) => {
+        tooltip.select('.name').text(d.name);
+        tooltip.select('.pubkey').text(d.id);
+        tooltip.select('.received').text(d.received);
+        tooltip.select('.given').text(d.given);
+        tooltip.classed('visible', true);
+      })
+      .on('mousemove', (event) => {
+        tooltip
+          .style('left', (event.clientX + 16) + 'px')
+          .style('top', (event.clientY + 16) + 'px');
+      })
+      .on('mouseleave', () => {
+        tooltip.classed('visible', false);
+      });
+      
+      // Update positions
+      simulation.on('tick', () => {
+        link
+          .attr('x1', d => d.source.x)
+          .attr('y1', d => d.source.y)
+          .attr('x2', d => d.target.x)
+          .attr('y2', d => d.target.y);
+        
+        node.attr('transform', d => `translate(${d.x},${d.y})`);
+      });
+      
+      // Initial zoom to fit
+      setTimeout(() => {
+        const bounds = g.node().getBBox();
+        const scale = Math.min(
+          width / bounds.width,
+          height / bounds.height
+        ) * 0.8;
+        const tx = (width - bounds.width * scale) / 2 - bounds.x * scale;
+        const ty = (height - bounds.height * scale) / 2 - bounds.y * scale;
+        
+        svg.transition().duration(750).call(
+          zoom.transform,
+          d3.zoomIdentity.translate(tx, ty).scale(scale)
+        );
+      }, 2000);
+    }
+    
+    function dragstarted(event) {
+      if (!event.active) simulation.alphaTarget(0.3).restart();
+      event.subject.fx = event.subject.x;
+      event.subject.fy = event.subject.y;
+    }
+    
+    function dragged(event) {
+      event.subject.fx = event.x;
+      event.subject.fy = event.y;
+    }
+    
+    function dragended(event) {
+      if (!event.active) simulation.alphaTarget(0);
+      event.subject.fx = null;
+      event.subject.fy = null;
+    }
+    
+    function resetZoom() {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      svg.transition().duration(750).call(
+        d3.zoom().transform,
+        d3.zoomIdentity.translate(width/2, height/2).scale(1)
+      );
+    }
+    
+    function toggleLabels() {
+      showLabels = !showLabels;
+      labels.style('opacity', showLabels ? 1 : 0);
+    }
+    
+    init();
+  </script>
+</body>
+</html>
