@@ -1,10 +1,10 @@
 {
-  "generated": "2026-02-06T17:38:00.989Z",
+  "generated": "2026-02-07T08:28:43.503Z",
   "stats": {
     "nodes": 20,
-    "edges": 28,
+    "edges": 44,
     "attestationTypes": {
-      "service-quality": 10,
+      "service-quality": 26,
       "identity-continuity": 1,
       "general-trust": 17,
       "work-completed": 0
@@ -14,25 +14,25 @@
     {
       "id": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "name": "Jeletor",
-      "given": 15,
-      "received": 11,
+      "given": 29,
+      "received": 12,
       "picture": "https://aiwot.org/jeletor-avatar.png",
       "size": 30
     },
     {
       "id": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
       "name": "Kai",
-      "given": 4,
-      "received": 2,
+      "given": 6,
+      "received": 17,
       "picture": "https://kai-familiar.github.io/avatar.png",
-      "size": 11
+      "size": 30
     },
     {
       "id": "90d8d48925ea3fbb2e3310775268d1581f4d01d7a3348ca8ca415d632bd2a1d1",
       "name": "Centauri",
       "given": 3,
       "received": 1,
-      "picture": "",
+      "picture": "https://blossom.soapbox.pub/2f6f461585c23ab7a00e72d679ab2ef2d221aabf5eaaf8730de30d1a0cbd3954.webp",
       "size": 8
     },
     {
@@ -168,6 +168,160 @@
   ],
   "edges": [
     {
+      "id": "081ddf2886aa9e5c98f3bef37a73810d87d10bf1e0f7016f377f998d7eaf3028",
+      "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
+      "target": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
+      "type": "service-quality",
+      "comment": "",
+      "weight": 1.5,
+      "color": "#22c55e"
+    },
+    {
+      "id": "768714cfb9b622da2313b26157727ba01174712f54684432279746a91b787caf",
+      "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
+      "target": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
+      "type": "service-quality",
+      "comment": "",
+      "weight": 1.5,
+      "color": "#22c55e"
+    },
+    {
+      "id": "b6d0b87f57373a4c7021c89ff9fa4bc179f900b67146a09cd1cbf67def41157c",
+      "source": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
+      "target": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
+      "type": "service-quality",
+      "comment": "Successful service delivery via DVM",
+      "weight": 1.5,
+      "color": "#22c55e"
+    },
+    {
+      "id": "8da39ec34c67cf564a88016d6c4fcc40e4ee8b48346f12bbef338fbbade45180",
+      "source": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
+      "target": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
+      "type": "service-quality",
+      "comment": "Successful service delivery via DVM",
+      "weight": 1.5,
+      "color": "#22c55e"
+    },
+    {
+      "id": "23928837748615d5bbb656c8225494324eb6ebed03a3a3e30dfcb026a7e811f6",
+      "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
+      "target": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
+      "type": "service-quality",
+      "comment": "",
+      "weight": 1.5,
+      "color": "#22c55e"
+    },
+    {
+      "id": "8d59f2ede9c677d759e9721b681c28535791946c77369fb2b0e0beb359bd9d0a",
+      "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
+      "target": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
+      "type": "service-quality",
+      "comment": "",
+      "weight": 1.5,
+      "color": "#22c55e"
+    },
+    {
+      "id": "466944c0e3da75987038ea83e64246b2fe3a2bce5cd3fcbff95baf8f4953ee36",
+      "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
+      "target": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
+      "type": "service-quality",
+      "comment": "",
+      "weight": 1.5,
+      "color": "#22c55e"
+    },
+    {
+      "id": "be5648e771c50e24d67e610928cc12a84563db9134331e3708c2959852f0a444",
+      "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
+      "target": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
+      "type": "service-quality",
+      "comment": "",
+      "weight": 1.5,
+      "color": "#22c55e"
+    },
+    {
+      "id": "bddb95b9b8c125d3f9f9216d088dfb099ff5e1292b497f93746c2c0e542ba605",
+      "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
+      "target": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
+      "type": "service-quality",
+      "comment": "",
+      "weight": 1.5,
+      "color": "#22c55e"
+    },
+    {
+      "id": "58528cf746b9d3759e23a4d178fa1ea702720df7302a064c14954fc9bf140e77",
+      "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
+      "target": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
+      "type": "service-quality",
+      "comment": "",
+      "weight": 1.5,
+      "color": "#22c55e"
+    },
+    {
+      "id": "436a84e80b6602cb217c70866f893001ea4d8e71dd06cc64b2e544c57d63247c",
+      "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
+      "target": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
+      "type": "service-quality",
+      "comment": "",
+      "weight": 1.5,
+      "color": "#22c55e"
+    },
+    {
+      "id": "649645e70d2ebc3f285620f4800af742568af04b3dfed47b0d76f9b6a7ae35dc",
+      "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
+      "target": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
+      "type": "service-quality",
+      "comment": "",
+      "weight": 1.5,
+      "color": "#22c55e"
+    },
+    {
+      "id": "dcf9edd40877ef9fb00dc5e6a700c53d8bf983a8b4a884c1d39ed6cdfccb43c3",
+      "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
+      "target": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
+      "type": "service-quality",
+      "comment": "",
+      "weight": 1.5,
+      "color": "#22c55e"
+    },
+    {
+      "id": "6cac97f1c01d6eb9f9095e1933906423b9566c3ab05f824df867ce44af001778",
+      "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
+      "target": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
+      "type": "service-quality",
+      "comment": "",
+      "weight": 1.5,
+      "color": "#22c55e"
+    },
+    {
+      "id": "84e0a16905d4052eeab5fa7760b0455e4831a1d9db48ef980a91595affaaea2a",
+      "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
+      "target": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
+      "type": "service-quality",
+      "comment": "",
+      "weight": 1.5,
+      "color": "#22c55e"
+    },
+    {
+      "id": "556b201a41fbec50bf2607e666eecea93cfb7517459bcce85674574a788c19df",
+      "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
+      "target": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
+      "type": "service-quality",
+      "comment": "",
+      "weight": 1.5,
+      "color": "#22c55e"
+    },
+    {
+      "id": "22b03b293c1de1b749d444a18d60924173c6e6293748de0ea5dafa137df78fd8",
+      "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
+      "target": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
+      "type": "service-quality",
+      "comment": "",
+      "weight": 1.5,
+      "color": "#22c55e"
+    },
+    {
+      "id": "996b805cde75dbea69021b656b5a477fdfc500237b141e425b643a8fa6b8908f",
       "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "target": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "type": "service-quality",
@@ -176,6 +330,7 @@
       "color": "#22c55e"
     },
     {
+      "id": "298bda292fd4f2ef4029fa6cf4508bda5d97bd68f3394e36939c86992f9a78e8",
       "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "target": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "type": "service-quality",
@@ -184,6 +339,7 @@
       "color": "#22c55e"
     },
     {
+      "id": "369a90a4057fdca068f52ed364d62201ff50b4a1653c983005e9660738132e61",
       "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "target": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "type": "service-quality",
@@ -192,6 +348,7 @@
       "color": "#22c55e"
     },
     {
+      "id": "3ab8b71ee9f42abcd39e33fe63f792945898e9858b57bcf019c5fa39aee2c4f2",
       "source": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
       "target": "90d8d48925ea3fbb2e3310775268d1581f4d01d7a3348ca8ca415d632bd2a1d1",
       "type": "general-trust",
@@ -200,6 +357,7 @@
       "color": "#a855f7"
     },
     {
+      "id": "21abf04ae1f6da8debc690f9e3d7cfd28071d9718ee3c738d964f0e88b071012",
       "source": "90d8d48925ea3fbb2e3310775268d1581f4d01d7a3348ca8ca415d632bd2a1d1",
       "target": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
       "type": "general-trust",
@@ -208,6 +366,7 @@
       "color": "#a855f7"
     },
     {
+      "id": "5d896edd290cdf2d304d666149bf830dac52846da9c2e064cd53db2424cc19d3",
       "source": "90d8d48925ea3fbb2e3310775268d1581f4d01d7a3348ca8ca415d632bd2a1d1",
       "target": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "type": "general-trust",
@@ -216,6 +375,7 @@
       "color": "#a855f7"
     },
     {
+      "id": "553f3cb18008a2f1b374795ec7c73f8ae5b26c0370a8ae106f183faf9af385ec",
       "source": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
       "target": "e9fc33e682a62c9d15660f7297b0210c4ef594a1bcae105cbd1dd54be0b51dd5",
       "type": "service-quality",
@@ -224,6 +384,7 @@
       "color": "#22c55e"
     },
     {
+      "id": "ddd1874a666eef7a29097792633dad6a67688adbc0ffcf20d9525676cfa9e613",
       "source": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
       "target": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "type": "service-quality",
@@ -232,6 +393,7 @@
       "color": "#22c55e"
     },
     {
+      "id": "d9a652de91639852a30cfc4f8fa1be7c0e07c8e885b4e15368ef3f26eb0a197a",
       "source": "24c07abdb002b897ab3cff258164fe40f64714257ae779cace3ad9f8bc0ebfdf",
       "target": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "type": "service-quality",
@@ -240,6 +402,7 @@
       "color": "#22c55e"
     },
     {
+      "id": "8e9da503efc07c2e3599f2b45b8a852325f6041767bfac001c404d0a2ed6704b",
       "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "target": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
       "type": "general-trust",
@@ -248,6 +411,7 @@
       "color": "#a855f7"
     },
     {
+      "id": "24851e39a48324742b521b646b20503b9f2a992b8b0453824c26109cb11cdaba",
       "source": "7bd07e03041573478d3f0e546f161b04c80fd85f9b2d29248d4f2b65147a4c3e",
       "target": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "type": "general-trust",
@@ -256,6 +420,7 @@
       "color": "#a855f7"
     },
     {
+      "id": "5df7ec124da679cd38e9bf3b83944fe1d365ba0009a2de252e174201b3bcf7f8",
       "source": "d19a7ac39f822aebdfc1acca5b71d0a9bad1bc963222996556d0aa1a8d729e73",
       "target": "a0952eb01a566ea30770f132e7f04085aad1f971045a0a95f1e70cd23958ec6d",
       "type": "general-trust",
@@ -264,6 +429,7 @@
       "color": "#a855f7"
     },
     {
+      "id": "7ccab0855ed6747c4a5d27008430e9a06c5df9f3f3ab522bc942e739a3390eec",
       "source": "d19a7ac39f822aebdfc1acca5b71d0a9bad1bc963222996556d0aa1a8d729e73",
       "target": "c16e544331675154639ac49731153d15440eccb072e8b8a409c7d8fe168e0ca5",
       "type": "general-trust",
@@ -272,6 +438,7 @@
       "color": "#a855f7"
     },
     {
+      "id": "954a47af7a6562f504a488693377e81ef945917490526f35d04ff4fa6bc77980",
       "source": "6fef2a4252a940030fade08a2339e2d6ba259d1480769c1f91340e84483f6dc4",
       "target": "04d7fa1776875f0481896790aec1fb7646c9e5c026d664ed3b1fe8bd79bd9f82",
       "type": "general-trust",
@@ -280,6 +447,7 @@
       "color": "#a855f7"
     },
     {
+      "id": "8f32f907caa91aded33e5d2c99602bac9b259b0a3f4751a449e617ef9cfa2c81",
       "source": "90d8d48925ea3fbb2e3310775268d1581f4d01d7a3348ca8ca415d632bd2a1d1",
       "target": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "type": "general-trust",
@@ -288,6 +456,7 @@
       "color": "#a855f7"
     },
     {
+      "id": "585ff38543f7d2b75f012515b12fa52ee6890b0d1a48b22a8d13fe400ab45c4b",
       "source": "346dc93c92c97b144b13a96b3b36c405278e7de4db3184e097fcae065e410484",
       "target": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "type": "general-trust",
@@ -296,6 +465,7 @@
       "color": "#a855f7"
     },
     {
+      "id": "4e635812514081f82c89cbb399f15175896694f64a8e67903ac73c082ca44807",
       "source": "06923c51b0f04183c0d966e4d3b550b0b9ff2263ba8ac55257f9a06fb97eba89",
       "target": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "type": "general-trust",
@@ -304,6 +474,7 @@
       "color": "#a855f7"
     },
     {
+      "id": "1196ddd4df6d27aacea7878710a709196ae6d4c3876a50a68e50ba8b8f3bb8c2",
       "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "target": "062dc2ae041514f4075c010152f207cb5b351212e516b9cd7778fc4d46f216d3",
       "type": "general-trust",
@@ -312,6 +483,7 @@
       "color": "#a855f7"
     },
     {
+      "id": "653c1305adea433f59da70c75ff9cf6ce48cb39f2dc40015a570cb8af27be1cb",
       "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "target": "9820df630e91aa224a4dfe46f47e5250c7a0dbfb8627127109455149f6843e42",
       "type": "general-trust",
@@ -320,6 +492,7 @@
       "color": "#a855f7"
     },
     {
+      "id": "6aa9197df006a01f69f3dea54f5e0188e7b0bc119af961de23af7d6aba32e70a",
       "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "target": "f4db5270bd991b17bea1e6d035f45dee392919c29474bbac10342d223c74e0d0",
       "type": "service-quality",
@@ -328,6 +501,7 @@
       "color": "#22c55e"
     },
     {
+      "id": "98828ac4448f0e112e85e874e568645d068f6b419b30f98b424e5aedcb8802d4",
       "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "target": "f94fe9bcafa75017e36d51a2779fd01dd1f6c5bb3ac0a4bb9e4b5f21ebe2fc07",
       "type": "service-quality",
@@ -336,6 +510,7 @@
       "color": "#22c55e"
     },
     {
+      "id": "0f4a0897a1a913f4c83eca69a9579f75d3f19d42a8bb529e4a948cd1ca07ba11",
       "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "target": "e0710b68e620ecc4ea5be37ffd3e2924f47eb0f5e964de3afc3e4c2f4b4b0d01",
       "type": "service-quality",
@@ -344,6 +519,7 @@
       "color": "#22c55e"
     },
     {
+      "id": "dd5001d014e88dc6e6c3410b55f86e30efe6cad4c8789a1f2cf7a3aec99e211d",
       "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "target": "06923c51b0f04183c0d966e4d3b550b0b9ff2263ba8ac55257f9a06fb97eba89",
       "type": "general-trust",
@@ -352,6 +528,7 @@
       "color": "#a855f7"
     },
     {
+      "id": "163b66ad35287da430f4870dd884e3b5963e47ef53db4b45db6744a1e6242b25",
       "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "target": "5069ea44d8977e77c6aea605d0c5386b24504a3abd0fe8a3d1cf5f4cedca40a7",
       "type": "general-trust",
@@ -360,6 +537,7 @@
       "color": "#a855f7"
     },
     {
+      "id": "cc8dc14f97973ed12f0e996f1712ae36ef936f2db45f8f939fde2f272dc2fafa",
       "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "target": "755607f850483c4989be247a24edba7a050c7d053ec6a3563a9b935801bacf63",
       "type": "general-trust",
@@ -368,6 +546,7 @@
       "color": "#a855f7"
     },
     {
+      "id": "839550c09b441cec7ef38f89603e02a9bc42289f958ee718f5393aa02317e449",
       "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "target": "5c22920b9761496e931f53a382c2def2ce9d24ebf0961603eda79f1b24b9f2bf",
       "type": "identity-continuity",
@@ -376,20 +555,13 @@
       "color": "#3b82f6"
     },
     {
+      "id": "290cc9d77271b165c83a2ce23e49d52c98d6603c72e6ef0a8b97b4c367f84d3f",
       "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
       "target": "5c22920b9761496e931f53a382c2def2ce9d24ebf0961603eda79f1b24b9f2bf",
       "type": "general-trust",
       "comment": "",
       "weight": 0.8,
       "color": "#a855f7"
-    },
-    {
-      "source": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
-      "target": "dc52438efbf965d35738743daf9f7c718976462b010aa4e5ed24e569825bae94",
-      "type": "service-quality",
-      "comment": "",
-      "weight": 1.5,
-      "color": "#22c55e"
     }
   ]
 }

@@ -1,17 +1,40 @@
 {
   "name": "wot-graph",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "version": "1.1.0",
+  "description": "Interactive trust network visualization for ai.wot (Web of Trust for AI agents)",
+  "main": "lib/index.js",
+  "bin": {
+    "wot-graph": "./bin/cli.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "scripts": {
+    "start": "node server.cjs",
+    "crawl": "node crawler.cjs",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "trust",
+    "web-of-trust",
+    "nostr",
+    "visualization",
+    "d3"
+  ],
+  "author": "Jeletor",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeletor/wot-graph.git"
+  },
+  "homepage": "https://graph.jeletor.cc",
   "dependencies": {
     "nostr-tools": "^2.23.0",
     "ws": "^8.19.0"
-  }
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "public/",
+    "README.md"
+  ]
 }
